@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block msg %}
+
+{% if messages %}
+{% for message in messages %}
+<div {% if message.tags %} class="alert alert-{{message.tags}} alert-dismissible fade show mt-2" {% endif %}>
+    <strong>{{message}}</strong>
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock msg %}
+
+{% block content %}
+<div class="col-sm-10">
+    <h3 class="my-3 font-weight-bold">Add Post</h3>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-success" value="Add">
+        <a href="{% url 'dashboard' %}" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
+
+{% endblock content %}

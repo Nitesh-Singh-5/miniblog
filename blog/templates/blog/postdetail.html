@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="col-sm-9">
+    <h1 class="font-weight-bold text-info">Post</h1>
+
+    <div class="jumbotron jumbotron-fluid" data-aos="flip-left">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold">{{post.title|escape|linebreaks}}</h1>
+            <p class="lead">{{post.description|escape|linebreaks}}</p>
+        </div>
+    </div>
+    <div class="postdetail">
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+</div>
+
+
+{% include "blog/sidebar.html" %}
+
+
+
+{% endblock content %}

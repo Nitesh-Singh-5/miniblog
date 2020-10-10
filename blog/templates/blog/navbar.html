@@ -1,0 +1,62 @@
+<div class="container upperpart">
+  <div class="row">
+    <div class="col-lg-10">
+      <h4 class="text-center mt-2 mr-5">MyBlog</h4>
+    </div>
+    {% if not request.user.is_authenticated %}
+
+    <div class="col-lg-2 text-right">
+
+      <a href="{% url 'signup' %}" class="sign-in mb-2 p-1 " type="submit" >SignUp</a>
+      <a href="{% url 'login' %}" class="sign-in mb-2 p-1 " type="submit">Login</a>
+     
+    </div>
+    {% else %}
+    <div class="col-lg-2 text-right">
+
+      <a href="{% url 'logout' %}" type="submit" class="sign-in mb-2">Logout</a>
+
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand text-white ml-1" href="{% url 'home' %}">MyBlog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon "></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto mr-5">
+      <li class="nav-item ">
+        <a class="nav-link text-white" href="{% url 'home' %}">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'about' %}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'contact' %}">Contact</a>
+      </li>
+
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'dashboard' %}">Dashboard</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'logout' %}">Logout</a>
+      </li>
+
+      {% else %}
+
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'signup' %}">Signup</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

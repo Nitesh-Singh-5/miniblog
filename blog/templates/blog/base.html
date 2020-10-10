@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    {% comment %} <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> {% endcomment %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/core6.css' %}">
+
+</head>
+
+<body>
+    <div class="navbar-top">
+        {% include "blog/navbar.html" %}
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% block msg %}
+
+                {% endblock msg %}
+            </div>
+        </div>
+
+        <div class="row">
+            {% block side %}
+
+            {% endblock side %}
+
+            {% block content %}
+
+            {% endblock content %}
+
+        </div>
+    </div>
+<!-- 
+    <footer class="bg-dark text-white text-center">THis is My Blog Web Application</footer> -->
+
+    <script src="{% static 'blog/js/all.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.js' %}"></script>
+    <script src="{% static 'blog/js/jquery.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.js' %}"></script>
+
+    <!-- our aos data -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 80,
+            duration: 800,
+        });
+        
+    </script>
+</body>
+
+</html>
