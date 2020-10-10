@@ -12,7 +12,7 @@ from django.views.generic import DetailView
 
 # Home Page
 def home(request):
-    posts = Post.objects.all().order_by('id')
+    posts = Post.objects.all()
     # paginator = Paginator(posts, 4,orphans=1)
     # page_number = request.GET.get('page')
     # page_obj = paginator.get_page(page_number)
